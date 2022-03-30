@@ -56,6 +56,7 @@ class ActionConnector(Action):
             })
             return []
         elif intent == "transfer":
+            dispatcher.utter_message(text="transferring call")
             dispatcher.utter_message(json_message={
                 "type": "event",
                 "name": "transfer"
