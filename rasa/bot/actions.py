@@ -1,10 +1,8 @@
-# This files contains your custom actions which can be used to run
+# This file contains your custom actions which can be used to run
 # custom Python code.
 #
-# See this guide on how to implement these action:
+# See this guide on how to implement these actions:
 # https://rasa.com/docs/rasa/core/actions/#custom-actions/
-
-# This is tal's rasa bot"
 
 from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
@@ -25,10 +23,6 @@ state = {
 
 
 class ActionConnector(Action):
-    def resume_listening(self):
-        print("resume listening.....")
-        state["is_bot_available"] = True
-
     def name(self) -> Text:
         return "action_connector"
 

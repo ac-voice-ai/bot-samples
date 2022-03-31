@@ -27,7 +27,7 @@ Example: This would be the matching configuration on the VAIC config file
   "botURL": "http://<YOUR IP>:5006/webhooks/audiocodes/webhook",
   "credentials": {
     "token": "example_token"
-  },
+  }
 }
 ```
 

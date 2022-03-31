@@ -1,8 +1,8 @@
 ## intent:basicTalk_stream1
-- ShortReplay
+- short reply
 
 ## intent:basicTalk_stream2
-- MediumReplay
+- medium reply
 
 ## intent:disconnect
 - disconnect
@@ -10,10 +10,6 @@
 ## intent:transfer
 - transfer
 - transfer me
-
-## intent:vaig_event_start
-- hi
-- hello
 
 ## regex:SECONDS
 [0-9]*
