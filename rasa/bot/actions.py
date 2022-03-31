@@ -55,6 +55,17 @@ class ActionConnector(Action):
             })
             return []
 
+        elif intent == "play":
+            dispatcher.utter_message(json_message={
+                "type": "event",
+                "name": "playUrl",
+                "activityParams": {
+                    "playUrlUrl": "http://www-mmsp.ece.mcgill.ca/Documents/AudioFormats/WAVE/Samples/Goldwave/addf8-mulaw-GW.wav",
+                    "playUrlMediaFormat": "wav/mulaw"
+                }
+            })
+            return []
+
         else:
             dispatcher.utter_message(text="dont know what to do with your request")
             return []

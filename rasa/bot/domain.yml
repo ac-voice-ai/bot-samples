@@ -6,6 +6,7 @@ intents:
 - medium_reply
 - disconnect
 - transfer
+- play
 - vaig_event_start
 
 responses:

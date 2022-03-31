@@ -13,3 +13,7 @@
 ## intent:transfer
 - transfer
 - transfer me
+
+## intent:play
+- play
+- play file

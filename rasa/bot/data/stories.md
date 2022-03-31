@@ -16,3 +16,6 @@
 * transfer
   - action_connector
 
+## playUrl Event
+* play
+  - action_connector
