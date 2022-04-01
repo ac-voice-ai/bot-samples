@@ -2,7 +2,7 @@ version: '3'
 
 services:
   rasa:
-    image: audiocodes/rasa:2.8.26
+    image: audiocodes/rasa:3.1.0
     command: run --debug --port 5006
     restart: always
     depends_on:
@@ -14,7 +14,7 @@ services:
       - ./bot:/app
 
   rasa_ws:
-    image: audiocodes/rasa:2.8.26
+    image: audiocodes/rasa:3.1.0
     build:
       context: docker
     command: run --debug --port 5009
@@ -29,7 +29,7 @@ services:
       - ./bot/credentials-ws.yml:/app/credentials.yml
 
   actions_server:
-    image: audiocodes/rasa:2.8.26
+    image: audiocodes/rasa:3.1.0
     command: run actions --port 5059
     restart: always
     tmpfs: /tmp

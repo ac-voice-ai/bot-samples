@@ -1,4 +1,5 @@
 language: en
+recipe: default.v1
 pipeline:
 - name: WhitespaceTokenizer
 - name: RegexFeaturizer
