@@ -18,25 +18,37 @@ class ActionConnector(Action):
     def name(self) -> Text:
         return "action_connector"
 
+    @staticmethod
+    def get_name(tracker: Tracker):
+        message = tracker.latest_message
+        if 'metadata' in message:
+            obj = message
+        else:
+            obj = next(ev for ev in tracker.events if ev['event'] == 'session_started')
+        try:
+            return obj['metadata']
+        except Exception as e:
+            logger.error(f"Failed:", exc_info=e)
+            logger.info(vars(tracker))
+            return None
+
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        intent = tracker.latest_message['intent'].get('name')
+        message = tracker.latest_message
+        intent = message['intent'].get('name')
         logger.info(f"Intent: {intent}")
 
         if intent == "vaig_event_start":
-            try:
-                session_started = next(ev for ev in tracker.events if ev['event'] == 'session_started')
-                name = session_started['metadata']['callerDisplayName']
-            except:
-                name = ''
+            metadata = self.get_metadata(tracker)
+            name = metadata['callerDisplayName'] if metadata else ''
             dispatcher.utter_message(text=f'Hi {name}, this is AudioCodes Rasa bot')
             return [SlotSet("name", name)]
 
         elif intent == "disconnect":
             dispatcher.utter_message(text="action: disconnect")
-            dispatcher.utter_message(json_message={
+            dispatcher.utter_custom_json({
                 "type": "event",
                 "name": "hangup",
                 "activityParams": {
@@ -47,7 +59,7 @@ class ActionConnector(Action):
 
         elif intent == "transfer":
             dispatcher.utter_message(text="transferring call")
-            dispatcher.utter_message(json_message={
+            dispatcher.utter_custom_json({
                 "type": "event",
                 "name": "transfer",
                 "activityParams": {
@@ -57,7 +69,7 @@ class ActionConnector(Action):
             return []
 
         elif intent == "play":
-            dispatcher.utter_message(json_message={
+            dispatcher.utter_custom_json({
                 "type": "event",
                 "name": "playUrl",
                 "activityParams": {

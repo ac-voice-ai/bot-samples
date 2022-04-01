@@ -31,6 +31,11 @@ Example: This would be the matching configuration on the VAIC config file
 }
 ```
 
-Running
--------
+Initialize
+----------
+docker-compose build
+docker-compose run rasa train
+
+Run
+---
 docker-compose up -d
