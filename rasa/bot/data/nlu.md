@@ -1,15 +1,15 @@
-## intent:basicTalk_stream1
+## intent:short_reply
+- short
 - short reply
 
-## intent:basicTalk_stream2
+## intent:medium_reply
+- medium
 - medium reply
 
 ## intent:disconnect
 - disconnect
+- bye
 
 ## intent:transfer
 - transfer
 - transfer me
-
-## regex:SECONDS
-[0-9]*

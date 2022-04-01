@@ -1,10 +1,12 @@
-## Basic Talk Stream 1
-* basicTalk_stream1 
+## Greet
+* vaig_event_start
   - action_connector
 
-## Basic Talk Stream 2
-* basicTalk_stream2
-  - action_connector
+## Replies
+* short_reply
+  - utter_short_reply
+* medium_reply
+  - utter_medium_reply
 
 ## Disconnect
 * disconnect

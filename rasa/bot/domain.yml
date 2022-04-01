@@ -2,15 +2,16 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
-- basicTalk_stream1
-- basicTalk_stream2
+- short_reply
+- medium_reply
 - disconnect
 - transfer
 - vaig_event_start
+
 responses:
-  utter_hello:
-  - text: Hi, this is AudioCodes Rasa bot
+  utter_short_reply:
+  - text: and hello to you too
+  utter_medium_reply:
+  - text: Many people want to work with clouds but everybody works with windows
 actions:
 - action_connector
-entities:
-- SECONDS
