@@ -3,6 +3,7 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
+- greet
 - short_reply
 - medium_reply
 - disconnect
@@ -17,6 +18,8 @@ slots:
     - type: custom
 
 responses:
+  utter_greet:
+  - text: Hi {name}, this is AudioCodes Rasa bot
   utter_short_reply:
   - text: and hello to you too {name}
   utter_medium_reply:

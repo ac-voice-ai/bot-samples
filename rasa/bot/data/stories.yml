@@ -1,9 +1,13 @@
 version: "3.1"
 stories:
-- story: Greet
+- story: Start
   steps:
   - intent: vaig_event_start
   - action: action_connector
+- story: Greet
+  steps:
+  - intent: greet
+  - action: utter_greet
 - story: Replies
   steps:
   - intent: short_reply
