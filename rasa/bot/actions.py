@@ -6,6 +6,7 @@
 
 from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
+from rasa_sdk.events import SlotSet
 from rasa_sdk.executor import CollectingDispatcher
 import logging
 
@@ -31,7 +32,7 @@ class ActionConnector(Action):
             except:
                 name = ''
             dispatcher.utter_message(text=f'Hi {name}, this is AudioCodes Rasa bot')
-            return []
+            return [SlotSet("name", name)]
 
         elif intent == "disconnect":
             dispatcher.utter_message(text="action: disconnect")

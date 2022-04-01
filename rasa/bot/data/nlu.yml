@@ -1,0 +1,22 @@
+version: "2.0"
+nlu:
+- intent: short_reply
+  examples: |
+    - short
+    - short reply
+- intent: medium_reply
+  examples: |
+    - medium
+    - medium reply
+- intent: disconnect
+  examples: |
+    - disconnect
+    - bye
+- intent: transfer
+  examples: |
+    - transfer
+    - transfer me
+- intent: play
+  examples: |
+    - play
+    - play file

@@ -1,5 +1,5 @@
-# Usage: docker build -t audiocodes/rasa:1.10.15 .
-FROM rasa/rasa:1.10.15
+# Usage: docker build -t audiocodes/rasa:2.8.26 .
+FROM rasa/rasa:2.8.26
 USER root
 RUN pip install --upgrade pip
 RUN pip install rasa-audiocodes

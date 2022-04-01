@@ -1,0 +1,4 @@
+/.config
+/.keras
+/__pycache__/
+/models

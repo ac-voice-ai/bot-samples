@@ -1,0 +1,24 @@
+version: "2.0"
+stories:
+- story: Greet
+  steps:
+  - intent: vaig_event_start
+  - action: action_connector
+- story: Replies
+  steps:
+  - intent: short_reply
+  - action: utter_short_reply
+  - intent: medium_reply
+  - action: utter_medium_reply
+- story: Disconnect
+  steps:
+  - intent: disconnect
+  - action: action_connector
+- story: Transfer
+  steps:
+  - intent: transfer
+  - action: action_connector
+- story: playUrl Event
+  steps:
+  - intent: play
+  - action: action_connector

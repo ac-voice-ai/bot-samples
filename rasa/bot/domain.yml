@@ -8,10 +8,13 @@ intents:
 - transfer
 - play
 - vaig_event_start
+slots:
+  name:
+    type: text
 
 responses:
   utter_short_reply:
-  - text: and hello to you too
+  - text: and hello to you too {name}
   utter_medium_reply:
   - text: Many people want to work with clouds but everybody works with windows
 actions:
