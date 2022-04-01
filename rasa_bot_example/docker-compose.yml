@@ -1,0 +1,54 @@
+version: '3'
+
+services:
+  rasa_with_ws:
+    image: audiocodes/rasa:1.10.15
+    build:
+      context: docker
+    command: run --debug --port 5009
+    restart: always
+    depends_on:
+      - actions_server_with_ws
+    ports:
+      - 5009:5009
+    tmpfs: /tmp
+    volumes:
+      - ./bot_example:/app
+      - ./bot_example/credentials-ws.yml:/app/credentials.yml
+
+  rasa_no_ws:
+    image: audiocodes/rasa:1.10.15
+    command: run --debug --port 5006
+    restart: always
+    depends_on:
+      - actions_server_no_ws
+    ports:
+      - 5006:5006
+    tmpfs: /tmp
+    volumes:
+      - ./bot_example:/app
+
+  actions_server_with_ws:
+    image: audiocodes/rasa:1.10.15
+    command: run actions --port 5059
+    restart: always
+    ports:
+      - 5059:5059
+    tmpfs: /tmp
+    volumes:
+      - ./bot_example:/app
+
+  actions_server_no_ws:
+    image: audiocodes/rasa:1.10.15
+    command: run actions --port 5056
+    restart: always
+
+    ports:
+      - 5056:5056
+    tmpfs: /tmp
+    volumes:
+      - ./bot_example:/app
+
+networks:
+  local:
+    driver: bridge
