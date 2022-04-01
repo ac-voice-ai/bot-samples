@@ -12,7 +12,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
-
+enable_no_user_input = False
 
 class ActionConnector(Action):
     def name(self) -> Text:
@@ -44,6 +44,15 @@ class ActionConnector(Action):
             metadata = self.get_metadata(tracker)
             name = metadata['callerDisplayName'] if metadata else ''
             dispatcher.utter_message(text=f'Hi {name}, this is AudioCodes Rasa bot')
+            if enable_no_user_input:
+                dispatcher.utter_custom_json({
+                    "type": "event",
+                    "name": "config",
+                    "sessionParams": {
+                        "userNoInputTimeoutMS": 5000,
+                        "userNoInputSendEvent": True
+                    }
+                })
             return [SlotSet("name", name)]
 
         elif intent == "disconnect":

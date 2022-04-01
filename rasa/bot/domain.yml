@@ -10,6 +10,7 @@ intents:
 - transfer
 - play
 - vaig_event_start
+- vaig_event_noUserInput
 slots:
   name:
     type: text
@@ -24,5 +25,7 @@ responses:
   - text: and hello to you too {name}
   utter_medium_reply:
   - text: Many people want to work with clouds but everybody works with windows
+  utter_are_you_there:
+  - text: Are you there?
 actions:
 - action_connector

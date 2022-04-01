@@ -26,3 +26,7 @@ stories:
   steps:
   - intent: play
   - action: action_connector
+- story: silence
+  steps:
+  - intent: vaig_event_noUserInput
+  - action: utter_are_you_there
